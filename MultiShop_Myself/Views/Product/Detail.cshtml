@@ -205,7 +205,7 @@
     </div>
     <div class="row">
         <fieldset class="nn-relate">
-            <legend>Same Category</legend>
+            <legend>Cùng loại sản phẩm</legend>
             @foreach (var p in Model.Category.Products.Skip(1).Take(7))
             {
                 <div class="col-md-3 col-sm-6 col-xs-12">
@@ -235,7 +235,7 @@
 
     <div class="row">
         <fieldset class="nn-relate">
-            <legend>Same Suppliers</legend>
+            <legend>Sản phẩm cùng nhà cung cấp</legend>
             @foreach (var p in Model.Supplier.Products.Skip(1).Take(8))
             {
                 <div class="col-md-3 col-sm-6 col-xs-12">
