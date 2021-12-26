@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MultiShop</title>
+    <link href="Contents/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <!--jquery first, bootstrap later-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="Contents/js/bootstrap.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+    <div class="container">
+        @Html.Partial("_Header")
+        @Html.Partial("_Menu")
+
+
+        <div class="container row">
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
+
+                @Html.Action("Category", "Home")
+                @Html.Action("SaleOff", "Home")
+                @Html.Action("Special", "Home")
+                
+                @Html.Partial("_AdBanner")
+
+                
+            </div><!--end left-sidebar-->
+            <div class="col-md-9 col-sm-9 col-lg-9 col-xs-12">
+                <div class="nn-home-banner">
+                    <img src="/Content/img/banner/home-banner03.jpg" class="img-responsive" />
+                </div>   <!--end home banner-->
+                @RenderBody()
+                
+            </div>
+        </div>
+        @Html.Partial("_Footer")
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            $("#search").autocomplete({
+                source: "/Home/Search",     //Controller/Action
+                minLength: 2
+            });
+        })
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutSearch.cshtml";
+}
+
+<h2>Kết quả tìm kiếm</h2>
+
+@foreach (var p in Model)
+{
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="nn-product-box">
+            <a href="/Product/Detail/@p.Id">
+                <img class="img-responsive" src="/Content/img/products/@p.Image" />
+            </a>
+            <div class="nn-product-box-descriptions">
+                <h3 class="nn-product-box-name">
+                    <a href="/Product/Detail/@p.Id" title="@p.Name">@p.Name</a>
+                </h3>
+                <div class="nn-product-box-price ">
+                    <span class="">@p.UnitPrice</span>
+                </div>
+                <div class="nn-product-box-actions">
+                    <button type="button" title="Add to Cart" class="btn btn-default add-to-cart" data-id="@p.Id">
+                        <span>Thêm vào giỏ</span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

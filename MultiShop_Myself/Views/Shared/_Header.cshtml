@@ -1,0 +1,32 @@
+﻿@*Header*@
+<header class="nn-header">
+    <div class="col-sm-3 col-md-3 nn-text-align-center">
+        <a href="/">
+            <img src="/Content/img/logo.png" class="img-responsive" />
+        </a>
+    </div><!--end logo-->
+    <div class="col-md-6 col-sm-6 ">
+        @Html.Partial("_Search")
+    </div><!--end search box-->
+    <div class="nn-cart-box col-sm-3 col-md-3 ">
+        <div class="nn-top-cart-wrapper ">
+            <div class="nn-top-cart-contain">
+                <div class="nn-block-cart">
+                    <div class="nn-top-cart-title">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <a href="/Cart/Index">
+                            <span id="nn-cart-count">@ShoppingCart.Cart.Count</span> item<i class="caret"></i>
+                            <br /><span>$</span><span class="price" id="nn-cart-total"><strong>@ShoppingCart.Cart.Total</strong></span>
+                        </a>
+                    </div>
+                    <div class="nn-top-cart-content" style="overflow: hidden; display: none;">
+                        <p class="empty">Không có sản phẩm nào trong giỏ hàng</p>
+                        <div class="top-subtotal">Tổng cộng: <span class="price">$0.00</span></div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div><!--end cart box-->
+</header>

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Category>
+<div class="nn-block">
+    <div class="nn-megamenu-sidebar-title"><i class="glyphicon glyphicon-list"></i><h2>categories</h2></div>
+
+    @foreach (var c in Model)
+    {
+        <div class="nn-megamenu-sidebar">
+            <ul>
+                <li>
+                    <a href="/Product/Category?CategoryID=@c.Id">
+                        @*Lấy ProductController, Action Category, tham số truy vấn*@
+                        <span class="col-md-3"><img src="/Content/img/icons/@c.Icon" class="img-responsive" /></span>
+                        <span class="col-md-9"><h5><strong>@c.NameVN</strong></h5></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    }
+</div><!--end block category-->
