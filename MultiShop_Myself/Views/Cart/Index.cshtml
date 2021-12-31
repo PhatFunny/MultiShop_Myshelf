@@ -34,20 +34,20 @@
     }
     <tr>
         <th colspan="5" style="text-align:right">Tổng cộng:</th>
-        <th>@ShoppingCart.Cart.Total</th>
+        <th>$@ShoppingCart.Cart.Total</th>
         <th></th>
     </tr>
 </table>
 <form action="@Url.Action("Clear", "Cart")" method="post">
-    <button class="btn btn-default">
+    <button class="btn btn-default"  style="color: white;">
         <span class="glyphicon glyphicon-th-list"></span>
         Xóa 
     </button>
-    <a href="@Url.Action("Index", "Home")" class="btn btn-default">
+    <a href="@Url.Action("Index", "Home")" class="btn btn-default"  style="color: white;">
         <span class="glyphicon glyphicon-th-list"></span>
         Tiếp tục mua sắm
     </a>
-    <a href="@Url.Action("Checkout", "Order")" class="btn btn-default">
+    <a href="@Url.Action("Checkout", "Order")" class="btn btn-default"  style="color: white;">
         <span class="glyphicon glyphicon-th-list"></span>
         Thanh toán
     </a>
