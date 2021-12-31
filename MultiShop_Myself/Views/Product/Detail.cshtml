@@ -69,7 +69,7 @@
                             </div>
                         </div>
 
-                        <button type="button" title="Add to Cart" class="btn btn-default add-to-cart" data-id="@Model.Id">
+                        <button type="button" title="Add to Cart" class="btn btn-default add-to-cart card-btn" style="margin-top:5px" data-id="@Model.Id">
                             <span>Thêm vào giỏ</span>
                         </button>
 
@@ -141,7 +141,7 @@
                         </div>
 
                         <div role="tabpanel" class="tab-pane" id="Comment">
-                            <h2>Hãy bình luận, góp ý quý báu của khách hàng</h2>
+                            <h2>Hãy để lại bình luận</h2>
                             <div class="fb-comments" data-href="/Product/Detail/@Model.Id" data-width="" data-numposts="5"></div>
                         </div>
 
@@ -178,10 +178,10 @@
                                                 <a href="" title="@s.Name">@s.Name</a>
                                             </h3>
                                             <div class="nn-product-box-price ">
-                                                <span class="">@s.UnitPrice</span>
+                                                <span class="">$@s.UnitPrice</span>
                                             </div>
                                             <div class="nn-product-box-actions">
-                                                <button type="button" title="Add to Cart" class="btn btn-default add-to-cart" data-id="@s.Id">
+                                                <button type="button" title="Add to Cart" class="btn btn-default add-to-cart card-btn" data-id="@s.Id">
                                                     <span>Thêm vào giỏ</span>
                                                 </button>
                                             </div>
@@ -205,23 +205,28 @@
             <legend>Cùng loại sản phẩm</legend>
             @foreach (var p in Model.Category.Products.Skip(1).Take(7))
             {
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="nn-product-box">
-                        <a href="/Product/Detail/@p.Id">
-                            <img class="img-responsive" src="/Content/img/products/@p.Image" />
-                        </a>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="nn-product-box product-card">
+                        <div class="card-img-box">
+                            <a class="card-product-link" href="/Product/Detail/@p.Id">
+                                <img class="img-responsive card-img" src="/Content/img/products/@p.Image" />
+                            </a>
+                        </div>
                         <div class="nn-product-box-descriptions">
-                            <h3 class="nn-product-box-name">
-                                <a href="/Product/Detail/@p.Id" title="@p.Name">@p.Name</a>
-                            </h3>
-                            <div class="nn-product-box-price ">
-                                <span class="">@p.UnitPrice</span>
-                            </div>
-                            <div class="nn-product-box-actions">
-                                <button type="button" title="Add to Cart" class="btn btn-default add-to-cart" data-id="@p.Id">
-                                    <span>Thêm vào giỏ</span>
-                                </button>
+                            <a class="card-product-link" href="/Product/Detail/@p.Id">
+                                <h3 class="nn-product-box-name">
+                                    <span class="txt-capitalize product-name">@p.Name</span>
+                                </h3>
+                                <div class="nn-product-box-price ">
+                                    <p class="txt-price">$@p.UnitPrice</p>
+                                </div>
+                            </a>
+                            <div class="nn-product-box-actions actions">
+                                <a class="btn btn-default card-btn" href="/Product/Detail/@p.Id" title="@p.Name"><i class="fas fa-search"></i></a>
 
+                                <button type="button" title="Add To Cart" class="btn btn-default add-to-cart card-btn" data-id="@p.Id">
+                                    <span><i class="fas fa-cart-plus"></i></span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -235,23 +240,28 @@
             <legend>Sản phẩm cùng nhà cung cấp</legend>
             @foreach (var p in Model.Supplier.Products.Skip(1).Take(8))
             {
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="nn-product-box">
-                        <a href="/Product/Detail/@p.Id">
-                            <img class="img-responsive" src="/Content/img/products/@p.Image" />
-                        </a>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="nn-product-box product-card">
+                        <div class="card-img-box">
+                            <a class="card-product-link" href="/Product/Detail/@p.Id">
+                                <img class="img-responsive card-img" src="/Content/img/products/@p.Image" />
+                            </a>
+                        </div>
                         <div class="nn-product-box-descriptions">
-                            <h3 class="nn-product-box-name">
-                                <a href="/Product/Detail/@p.Id" title="@p.Name">@p.Name</a>
-                            </h3>
-                            <div class="nn-product-box-price ">
-                                <span class="">@p.UnitPrice</span>
-                            </div>
-                            <div class="nn-product-box-actions">
-                                <button type="button" title="Add to Cart" class="btn btn-default add-to-cart" data-id="@p.Id">
-                                    <span>Thêm vào giỏ</span>
-                                </button>
+                            <a class="card-product-link" href="/Product/Detail/@p.Id">
+                                <h3 class="nn-product-box-name">
+                                    <span class="txt-capitalize product-name">@p.Name</span>
+                                </h3>
+                                <div class="nn-product-box-price ">
+                                    <p class="txt-price">$@p.UnitPrice</p>
+                                </div>
+                            </a>
+                            <div class="nn-product-box-actions actions">
+                                <a class="btn btn-default card-btn" href="/Product/Detail/@p.Id" title="@p.Name"><i class="fas fa-search"></i></a>
 
+                                <button type="button" title="Add To Cart" class="btn btn-default add-to-cart card-btn" data-id="@p.Id">
+                                    <span><i class="fas fa-cart-plus"></i></span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -265,23 +275,28 @@
             <legend>Sản phẩm đã xem</legend>
             @foreach (var p in ViewBag.Views)
             {
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="nn-product-box">
-                        <a href="/Product/Detail/@p.Id">
-                            <img class="img-responsive" src="/Content/img/products/@p.Image" />
-                        </a>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="nn-product-box product-card">
+                        <div class="card-img-box">
+                            <a class="card-product-link" href="/Product/Detail/@p.Id">
+                                <img class="img-responsive card-img" src="/Content/img/products/@p.Image" />
+                            </a>
+                        </div>
                         <div class="nn-product-box-descriptions">
-                            <h3 class="nn-product-box-name">
-                                <a href="/Product/Detail/@p.Id" title="@p.Name">@p.Name</a>
-                            </h3>
-                            <div class="nn-product-box-price ">
-                                <span class="">@p.UnitPrice</span>
-                            </div>
-                            <div class="nn-product-box-actions">
-                                <button type="button" title="Add to Cart" class="btn btn-default add-to-cart" data-id="@p.Id">
-                                    <span>Thêm vào giỏ</span>
-                                </button>
+                            <a class="card-product-link" href="/Product/Detail/@p.Id">
+                                <h3 class="nn-product-box-name">
+                                    <span class="txt-capitalize product-name">@p.Name</span>
+                                </h3>
+                                <div class="nn-product-box-price ">
+                                    <p class="txt-price">$@p.UnitPrice</p>
+                                </div>
+                            </a>
+                            <div class="nn-product-box-actions actions">
+                                <a class="btn btn-default card-btn" href="/Product/Detail/@p.Id" title="@p.Name"><i class="fas fa-search"></i></a>
 
+                                <button type="button" title="Add To Cart" class="btn btn-default add-to-cart card-btn" data-id="@p.Id">
+                                    <span><i class="fas fa-cart-plus"></i></span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -295,23 +310,28 @@
             <legend>Những sản phẩm ưa thích</legend>
             @foreach (var p in ViewBag.Top)
             {
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="nn-product-box">
-                        <a href="/Product/Detail/@p.Id">
-                            <img class="img-responsive" src="/Content/img/products/@p.Image" />
-                        </a>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="nn-product-box product-card">
+                        <div class="card-img-box">
+                            <a class="card-product-link" href="/Product/Detail/@p.Id">
+                                <img class="img-responsive card-img" src="/Content/img/products/@p.Image" />
+                            </a>
+                        </div>
                         <div class="nn-product-box-descriptions">
-                            <h3 class="nn-product-box-name">
-                                <a href="/Product/Detail/@p.Id" title="@p.Name">@p.Name</a>
-                            </h3>
-                            <div class="nn-product-box-price ">
-                                <span class="">@p.UnitPrice</span>
-                            </div>
-                            <div class="nn-product-box-actions">
-                                <button type="button" title="Add to Cart" class="btn btn-default add-to-cart" data-id="@p.Id">
-                                    <span>Thêm vào giỏ</span>
-                                </button>
+                            <a class="card-product-link" href="/Product/Detail/@p.Id">
+                                <h3 class="nn-product-box-name">
+                                    <span class="txt-capitalize product-name">@p.Name</span>
+                                </h3>
+                                <div class="nn-product-box-price ">
+                                    <p class="txt-price">$@p.UnitPrice</p>
+                                </div>
+                            </a>
+                            <div class="nn-product-box-actions actions">
+                                <a class="btn btn-default card-btn" href="/Product/Detail/@p.Id" title="@p.Name"><i class="fas fa-search"></i></a>
 
+                                <button type="button" title="Add To Cart" class="btn btn-default add-to-cart card-btn" data-id="@p.Id">
+                                    <span><i class="fas fa-cart-plus"></i></span>
+                                </button>
                             </div>
                         </div>
                     </div>

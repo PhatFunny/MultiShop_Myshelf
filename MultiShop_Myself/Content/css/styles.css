@@ -1,6 +1,10 @@
 ﻿body {
 }
 /* Common*/
+.full-width {
+    width:100% !important;
+}
+
 .mg-auto {
     width: auto;
     margin-right: auto;
@@ -11,6 +15,57 @@
     text-transform: capitalize !important;
 }
 
+/* Header */
+.dropdown-menu li {
+    height: 40px !important;
+    transition: all linear 100ms;
+}
+
+.dropdown-menu > li > a {
+    transition: all linear 100ms;
+    display: block;
+    width: 100%;
+    line-height: 40px !important;
+}
+.dropdown-menu li:hover{
+    background: #ed6f6f;
+    transition: all linear 100ms;
+}
+
+.dropdown-menu li:hover a{
+    transition: all linear 100ms;
+    color: white !important;
+}
+
+.cart-btn {
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: white;
+    outline: 2px #ed6f6f solid;
+    width: 100px;
+    transition: all linear 100ms;
+    float: right;
+}
+
+.cart-btn a {
+    color: black;
+    font-size: 1.5rem;
+    transition: all linear 100ms;
+    display:block;
+    width: 100%;
+    line-height: 1.5;
+}
+
+.cart-btn:hover {
+    transition: all linear 100ms;
+    transform: scale(1.1);
+}
+
+.cart-btn:hover a{
+    color: rgba(237, 111, 111, 0.80);
+    transition: all linear 100ms;
+
+}
 /* Product Card*/
 
 .card-product-link:hover {
@@ -36,6 +91,7 @@
 }
 
 .card-img{
+    transition: all linear 100ms;
     width: 100%;
     height: 100%;
 }
@@ -71,7 +127,12 @@
 
 .card-btn {
     width: 100%;
+    transition: all linear 100ms;
     color: white;
+}
+
+.card-btn:hover {
+    transition: all linear 100ms;
 }
 
 /*  Category tags*/
@@ -83,9 +144,7 @@
 
 .cat-title{
     font-size: 2.5rem;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    line-height: 50px;
 }
 .cat-title:hover a{
     color: #d6e9e7;
@@ -129,6 +188,7 @@
 @media screen and (max-width: 768px) {
     .cat-title {
         font-size: 2rem;
+        line-height: 40px;
     }
     .tag {
         height: 4rem;
@@ -136,5 +196,19 @@
     .product-card{
         width: 400px;
         margin: auto;
+    }
+
+    .navbar {
+        top: 100px;
+    }
+    .content {
+        margin-top: 100px;
+    }
+
+    .cart-btn {
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        width: 50%;
     }
 }

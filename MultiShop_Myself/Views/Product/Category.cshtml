@@ -3,7 +3,9 @@
     ViewBag.Title = "Category";
 }
 
-<h2>Loại sản phẩm</h2>
+<div class="tag">
+    <h2 class="cat-title" style="color: white;">@Model.First().Category.NameVN</h2>
+</div>
 
 <div class="row">
     @foreach (var p in Model)
