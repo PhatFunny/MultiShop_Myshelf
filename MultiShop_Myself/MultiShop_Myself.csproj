@@ -232,6 +232,7 @@
     <Content Include="Content\css\jquery-ui.min.css" />
     <Content Include="Content\css\nn-style.css" />
     <Content Include="Content\css\Style.css" />
+    <Content Include="Content\css\styles.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\banner-camera.jpg" />
     <Content Include="Content\img\logo.png" />
@@ -390,7 +391,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
