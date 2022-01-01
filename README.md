@@ -1,4 +1,4 @@
-# MultiShop_Myshelf
+# MultiShop App Using ASP.NET
 Đề tài 13 - Nhóm 15<br>
 <hr>
 Xây dựng website thương mại điện tử,
