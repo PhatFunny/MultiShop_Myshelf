@@ -7,5 +7,4 @@ sử dụng ASP.NET MVC<br>
 Chức năng quản lý, đạt hàng online
 Thống kê, xem và xử lý đơn hàng
 Hai giao diện: back end, front-end
-Phân quyền
-Tìm kiếm
+Phân quyền, Tìm kiếm
