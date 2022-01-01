@@ -169,9 +169,85 @@
     font-weight: bold;
     font-size: 1.5rem;
 }
+/*---------------------*/
 
+/* Slider*/
+.slides {
+    width: 100%;
+    height: 500px;
+    overflow-x: hidden;
+    position: relative;
+}
 
-/* Responsive*/
+.slide {
+    position: absolute;
+    width: 100%;
+    transition: all linear 500ms;
+    height: 100%;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Change slide button*/
+
+.btn-slide {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 30px;
+    height: 50px;
+    opacity: .8;
+    font-size: 2rem;
+    border:none;
+}
+
+.slide-prev {
+    border-radius: 0 5px 5px 0;
+    left: 0;
+    text-align: left;
+}
+
+.slide-next {
+    border-radius: 5px 0 0 5px;
+    text-align: right;
+    right: 0;
+}
+
+/* dots */
+.dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dots:hover {
+    cursor: pointer;
+}
+.dot{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: .6;
+    background-color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.dot-active {
+    opacity: 1;
+}
+
+.dot:hover {
+    opacity: 1;
+}
+
+/*---------------------*/
+/* Responsive */
 @media screen and (max-width: 1181px) {
     .card-img-box {
         height: 300px;

@@ -10,9 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="Contents/js/bootstrap.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @*@Styles.Render("~/Content/css/styles.css")*@
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/css/styles.css")
     @Scripts.Render("~/bundles/modernizr")
+    <base href="~/Content/css/"/>
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 
 <body>
@@ -34,12 +36,12 @@
             </div><!--end left-sidebar-->
                 @RenderBody()
                 
-            </div>
         </div>
         @Html.Partial("_Footer")
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/js/main.js")
     @RenderSection("scripts", required: false)
     <script>
         $(function () {

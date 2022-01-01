@@ -3,6 +3,45 @@
     ViewBag.Title = "Home Page";
 }
 
+<div class="slides">
+    <div class="slide">
+        <img src="~/Content/img/slides/watch/watch_1.jpg"/>
+    </div>
+    <div class="slide">
+        <img src="~/Content/img/slides/laptop/laptop_1.jpg"/>
+    </div>
+    <div class="slide">
+        <img src="~/Content/img/slides/perfume/perfume_1.jpg"/>
+    </div>
+    <div class="slide">
+        <img src="~/Content/img/slides/hat/hat_1.jpg" />
+    </div>
+    <div class="slide">
+        <img src="~/Content/img/slides/cellphone/cellphone_1.jpg" />
+    </div>
+    <div class="slide">
+        <img src="~/Content/img/slides/camera/camera_1.jpg" />
+    </div>
+    <div class="slide">
+        <img src="~/Content/img/slides/bag/bag_1.jpg" />
+    </div>
+    <div class="slide">
+        <img src="~/Content/img/slides/jewel/jewel_2.jpg" />
+    </div>
+    <button class="slide-prev btn-slide"><i class="fas fa-chevron-left"></i></button>
+    <button class="slide-next btn-slide"><i class="fas fa-chevron-right"></i></button>
+    <ul class="dots">
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+    </ul>
+</div>
+
 @foreach (var c in Model)
 {
     var items = c.Products.Take(6);

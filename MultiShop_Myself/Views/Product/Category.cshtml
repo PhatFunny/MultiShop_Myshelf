@@ -3,13 +3,64 @@
     ViewBag.Title = "Category";
 }
 
+@{ 
+    var cateName = "";
+    var cateID = Model.First().Id;
+    switch(cateID)
+    {
+        case 1001:
+            cateName = "watch";
+            break;
+        case 1009:
+            cateName = "jewel";
+            break;
+        case 1010:
+            cateName = "bag";
+            break;
+        case 1003:
+            cateName = "laptop";
+            break;
+        case 1022:
+            cateName = "perfume";
+            break;
+        case 1005:
+            cateName = "camera";
+            break;
+        case 1007:
+            cateName = "hat";
+            break;
+        case 1011:
+            cateName = "cellphone";
+            break;
+    }
+}
+
+<div class="slides">
+    <div class="slide"> 
+        <img src="~/Content/img/slides/@cateName/@(cateName)_1.jpg" />
+    </div>
+    <div class="slide">
+        <img src="~/Content/img/slides/@cateName/@(cateName)_2.jpg" />
+    </div>
+    <div class="slide">
+        <img src="~/Content/img/slides/@cateName/@(cateName)_3.jpg" />
+    </div>
+    <button class="slide-prev btn-slide"><i class="fas fa-chevron-left"></i></button>
+    <button class="slide-next btn-slide"><i class="fas fa-chevron-right"></i></button>
+    <ul class="dots">
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+    </ul>
+</div>
+
 <div class="tag">
     <h2 class="cat-title" style="color: white;">@Model.First().Category.NameVN</h2>
 </div>
 
 <div class="row">
     @foreach (var p in Model)
-    {
+        {
         <div class=" col-lg-2 col-md-4 col-sm-6">
             <div class="nn-product-box product-card">
                 <div class="card-img-box">
@@ -47,7 +98,7 @@
             $(".add-to-cart").click(function () {
                 pid = $(this).attr("data-id");
                 $.ajax({
-                    url: "/Cart/Add",
+                url: "/Cart/Add",
                     data: { id: pid },
                     success: function (response) {
                         alert("Đã thêm vào giỏ thành công");

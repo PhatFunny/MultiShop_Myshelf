@@ -359,6 +359,7 @@
     <Content Include="Content\js\jquery-1.10.2.min.js" />
     <Content Include="Content\js\jquery-ui.js" />
     <Content Include="Content\js\jquery.scrollbox.js" />
+    <Content Include="Content\js\main.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -453,6 +454,15 @@
     <Folder Include="Content\img\contacts\" />
     <Folder Include="Content\img\customers\" />
     <Folder Include="Content\img\icons\" />
+    <Folder Include="Content\img\slides\bag\" />
+    <Folder Include="Content\img\slides\camera\" />
+    <Folder Include="Content\img\slides\cellphone\" />
+    <Folder Include="Content\img\slides\hat\" />
+    <Folder Include="Content\img\slides\home\" />
+    <Folder Include="Content\img\slides\jewel\" />
+    <Folder Include="Content\img\slides\laptop\" />
+    <Folder Include="Content\img\slides\perfume\" />
+    <Folder Include="Content\img\slides\watch\" />
     <Folder Include="Content\img\suppliers\" />
   </ItemGroup>
   <ItemGroup>
