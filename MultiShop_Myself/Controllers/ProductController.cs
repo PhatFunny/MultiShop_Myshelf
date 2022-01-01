@@ -9,7 +9,7 @@ namespace MultiShop_Myself.Controllers
 {
     public class ProductController : Controller
     {
-        MultiShopDbContext db = new MultiShopDbContext();
+        MultiShop2Entities db = new MultiShop2Entities();
         // GET: Product
         public ActionResult Index()
         {
