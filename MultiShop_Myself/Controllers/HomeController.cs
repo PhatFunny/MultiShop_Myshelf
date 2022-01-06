@@ -10,7 +10,7 @@ namespace MultiShop_Myself.Controllers
 {
     public class HomeController : Controller
     {
-        MultiShopDbContext db = new MultiShopDbContext();
+        MultiShop2Entities db = new MultiShop2Entities();
         public ActionResult Index()
         {
             var model = db.Categories.Where(c => c.Products.Count > 4).ToList();

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MultiShop_Myself.Models;
 
 namespace MultiShop.Controllers
 {
     public class OrderController : Controller
     {
-        MultiShopDbContext db = new MultiShopDbContext();
+        MultiShop2Entities db = new MultiShop2Entities();
         //
         // GET: /Order/
         public ActionResult Checkout()

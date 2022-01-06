@@ -208,17 +208,43 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>MultiShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>MultiShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImageHelper.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MultiShopDbContext.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderDetail.cs" />
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\MultiShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultiShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MultiShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultiShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MultiShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultiShop.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>MultiShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>MultiShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>MultiShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ShoppingCart.cs" />
-    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\Supplier.cs">
+      <DependentUpon>MultiShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -364,6 +390,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="Models\MultiShop.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MultiShop.edmx</DependentUpon>
+      <LastGenOutput>MultiShop.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MultiShop.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MultiShop.edmx</DependentUpon>
+      <LastGenOutput>MultiShop.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -378,6 +414,13 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\js\jquery-1.10.2.min.map" />
     <Content Include="Content\js\jquery-scrollbox.jquery.json" />
+    <EntityDeploy Include="Models\MultiShop.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MultiShop.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MultiShop.edmx.diagram">
+      <DependentUpon>MultiShop.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

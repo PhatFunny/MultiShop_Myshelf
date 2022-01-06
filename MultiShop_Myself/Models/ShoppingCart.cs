@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MultiShop_Myself.Models;
 
 public class ShoppingCart
 {
@@ -33,7 +34,7 @@ public class ShoppingCart
         }
         catch // chưa có trong giỏ -> truy vấn CSDL và bỏ vào giỏ
         {
-            var db = new MultiShopDbContext();
+            var db = new MultiShop2Entities();
             var item = db.Products.Find(id);
             item.Quantity = 1;
             Items.Add(item);
