@@ -1,4 +1,6 @@
-﻿const slides = document.querySelectorAll(".slide");
+﻿try{
+
+const slides = document.querySelectorAll(".slide");
 const slideContainer = document.querySelector(".slides");
 
 const btnPrevSlide = document.querySelector(".slide-prev");
@@ -74,3 +76,22 @@ const initDots = function (dots) {
 
 
 initDots(dots);
+} catch (err) {
+    console.log(err.message);
+}
+
+const toTopBtn = document.querySelector(".to-top-btn");
+
+
+window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 100) {
+        toTopBtn.classList.add("active");
+    } else {
+        toTopBtn.classList.remove("active");
+    }
+});
+
+const header = document.querySelector(".nn-header");
+toTopBtn.addEventListener("click", () => {
+    header.scrollIntoView({ behavior: "smooth" });
+});
