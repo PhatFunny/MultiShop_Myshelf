@@ -1,5 +1,10 @@
 ﻿body {
 }
+
+html {
+   scroll-behavior: smooth;
+}
+
 /* Common*/
 .full-width {
     width:100% !important;
@@ -102,6 +107,11 @@
     font-weight: bold;
     text-decoration: none;
     color: #333;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; /*hướng của dòng chữ theo chiều: dọc*/
+    -webkit-line-clamp: 1; /*giới hạn số dòng*/
+    overflow: hidden;
 }
 
 .product-name:hover {
@@ -119,13 +129,19 @@
 }
 
 .actions {
+    justify-content:center;
     padding-top: 10px;
     display:flex;
-    padding-left: calc(50% - 10px);
-    transform:translateX(-25%);
+    align-items: center;
 }
 
 .card-btn {
+    width: 30%;
+    transition: all linear 100ms;
+    color: white;
+}
+
+.search, .detail-btn {
     width: 100%;
     transition: all linear 100ms;
     color: white;
@@ -263,6 +279,7 @@
     transition: all linear .1s;
     opacity: 0;
     pointer-events: none;
+    outline: none;
 }
 
 .to-top-btn.active {
@@ -288,6 +305,14 @@
     .card-img-box {
         height:100%;
     }
+    
+    .product-card {
+        margin:0 auto;
+        width: 80%;
+    }
+    .card-btn {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -299,7 +324,7 @@
         height: 4rem;
     }
     .product-card{
-        width: 400px;
+        width: 300px;
         margin: auto;
     }
 
@@ -315,5 +340,13 @@
         margin-right: auto;
         float: none;
         width: 50%;
+    }
+
+    .slides {
+        height: 200px;
+    }
+
+    .dots {
+        display: none;
     }
 }

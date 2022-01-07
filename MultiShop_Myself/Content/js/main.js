@@ -95,3 +95,13 @@ const header = document.querySelector(".nn-header");
 toTopBtn.addEventListener("click", () => {
     header.scrollIntoView({ behavior: "smooth" });
 });
+
+/*const productNames = document.querySelectorAll(".product-name");
+
+productNames.forEach((el, i) => {
+    const content = el.textContent;
+    if (content.length >= 20){
+        el.textContent = content.substring(0, 12) + " ...";
+    }
+})
+*/
