@@ -192,18 +192,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminControllers\CategoriesController.cs" />
+    <Compile Include="AdminControllers\CustomersController.cs" />
+    <Compile Include="AdminControllers\OrderDetailsController.cs" />
+    <Compile Include="AdminControllers\OrdersController.cs" />
+    <Compile Include="AdminControllers\ProductsController.cs" />
+    <Compile Include="AdminControllers\SuppliersController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,8 +249,12 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>MultiShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Supplier.cs">
+      <DependentUpon>MultiShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>MultiShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -488,8 +500,45 @@
     <Content Include="Views\Order\Checkout.cshtml" />
     <Content Include="Views\Order\Detail.cshtml" />
     <Content Include="Views\Order\List.cshtml" />
+    <Content Include="Views\RoleAdmin\Index.cshtml" />
+    <Content Include="Views\RoleAdmin\Details.cshtml" />
+    <Content Include="Views\RoleAdmin\Create.cshtml" />
+    <Content Include="Views\RoleAdmin\Edit.cshtml" />
+    <Content Include="Views\RoleAdmin\Delete.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\OrderDetails\Create.cshtml" />
+    <Content Include="Views\OrderDetails\Delete.cshtml" />
+    <Content Include="Views\OrderDetails\Details.cshtml" />
+    <Content Include="Views\OrderDetails\Edit.cshtml" />
+    <Content Include="Views\OrderDetails\Index.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Delete.cshtml" />
+    <Content Include="Views\Suppliers\Details.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AdminViews\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\banner\" />
     <Folder Include="Content\img\Brand\" />

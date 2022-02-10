@@ -25,7 +25,7 @@ namespace MultiShop_Myself.Models
         public string UnitBrief { get; set; }
         public double UnitPrice { get; set; }
         public string Image { get; set; }
-        public System.DateTime ProductDate { get; set; }
+        public Nullable<System.DateTime> ProductDate { get; set; }
         public bool Available { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }

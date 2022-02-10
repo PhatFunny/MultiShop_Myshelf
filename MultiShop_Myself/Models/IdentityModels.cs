@@ -29,5 +29,7 @@ namespace MultiShop_Myself.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MultiShop_Myself.Models.RoleViewModel> RoleViewModels { get; set; }
     }
 }

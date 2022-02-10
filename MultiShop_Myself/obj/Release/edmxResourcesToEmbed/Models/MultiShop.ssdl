@@ -36,10 +36,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CustomerId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CustomerId" Type="nvarchar" MaxLength="20" />
     <Property Name="OrderDate" Type="datetime" Nullable="false" />
     <Property Name="RequireDate" Type="datetime" Nullable="false" />
-    <Property Name="Receiver" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Receiver" Type="nvarchar" MaxLength="50" />
     <Property Name="Address" Type="nvarchar" MaxLength="60" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="1000" />
     <Property Name="Amount" Type="float" Nullable="false" />
@@ -53,7 +53,7 @@
     <Property Name="UnitBrief" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="UnitPrice" Type="float" Nullable="false" />
     <Property Name="Image" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ProductDate" Type="datetime" Nullable="false" />
+    <Property Name="ProductDate" Type="datetime" />
     <Property Name="Available" Type="bit" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="2000" />
     <Property Name="CategoryId" Type="int" Nullable="false" />
@@ -73,6 +73,16 @@
     <Property Name="Logo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK_HangHoa_Loai1">
     <End Role="Categories" Type="Self.Categories" Multiplicity="1">
@@ -115,7 +125,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Orders_Customers">
-    <End Role="Customers" Type="Self.Customers" Multiplicity="1">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
@@ -149,6 +159,7 @@
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_HangHoa_Loai1" Association="Self.FK_HangHoa_Loai1">
       <End Role="Categories" EntitySet="Categories" />
       <End Role="Products" EntitySet="Products" />

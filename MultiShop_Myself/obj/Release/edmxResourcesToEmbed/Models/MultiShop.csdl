@@ -40,10 +40,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CustomerId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="RequireDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="Amount" Type="Double" Nullable="false" />
@@ -59,7 +59,7 @@
     <Property Name="UnitBrief" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UnitPrice" Type="Double" Nullable="false" />
     <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ProductDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProductDate" Type="DateTime" Precision="3" Nullable="true" />
     <Property Name="Available" Type="Boolean" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
@@ -84,6 +84,16 @@
     <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Products" Relationship="Self.FK_Products_Suppliers" FromRole="Suppliers" ToRole="Products" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <Association Name="FK_HangHoa_Loai1">
     <End Role="Categories" Type="Self.Category" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -99,7 +109,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Orders_Customers">
-    <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Orders" Type="Self.Order" Multiplicity="*" />
@@ -159,6 +169,7 @@
     <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <AssociationSet Name="FK_HangHoa_Loai1" Association="Self.FK_HangHoa_Loai1">
       <End Role="Categories" EntitySet="Categories" />
       <End Role="Products" EntitySet="Products" />

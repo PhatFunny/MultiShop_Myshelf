@@ -325,3 +325,4 @@ E:\HocTap\LTWEB\MultiShop_Myshelf\MultiShop_Myself\bin\Microsoft.Owin.Security.T
 E:\HocTap\LTWEB\MultiShop_Myshelf\MultiShop_Myself\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\HocTap\LTWEB\MultiShop_Myshelf\MultiShop_Myself\obj\Release\MultiShop_Myself.dll
 E:\HocTap\LTWEB\MultiShop_Myshelf\MultiShop_Myself\obj\Release\MultiShop_Myself.pdb
+E:\HocTap\LTWEB\MultiShop_Myshelf\MultiShop_Myself\obj\Release\MultiShop_Myself.csprojResolveAssemblyReference.cache

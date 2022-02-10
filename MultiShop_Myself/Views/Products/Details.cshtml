@@ -1,0 +1,130 @@
+﻿@model MultiShop_Myself.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitBrief)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitBrief)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Special)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Special)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Views)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Views)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.NameVN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.NameVN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

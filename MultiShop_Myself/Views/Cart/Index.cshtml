@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Product>
+
 @using MultiShop_Myself.Models
 @{
     ViewBag.Title = "Shopping Cart ";
@@ -6,39 +7,48 @@
 
 <h2>Giỏ hàng</h2>
 
-<table class="table table-hover">
-    <tr>
-        <th>Mã sản phẩm</th>
-        <th>Tên sản phẩm</th>
-        <th>Đơn giá</th>
-        <th>Giảm giá</th>
-        <th>Số lượng</th>
-        <th>Thành tiền</th>
-        <th></th>
-    </tr>
-    @foreach (var p in Model)
-    {
+@if(Model == null)
+{
+    <p class="text-info text-center">
+        Chưa có sản phẩm trong giỏ hàng
+    </p>
+} else
+{
+    <table class="table table-hover">
         <tr>
-            <td>@p.Id</td>
-            <td>@p.Name</td>
-            <td>@Html.FormatValue(p.UnitPrice, "{0:c}")</td>
-            <td>@Html.FormatValue(p.Discount, "{0:p}")</td>
-            <td><input class="quantity" value="@p.Quantity" data-id="@p.Id" size="3"></td>
-            <td id="@p.Id">@Html.FormatValue(p.UnitPrice * p.Quantity * (1 - p.Discount), "{0:c}")</td>
-            <td>
-                <a href="/Product/Detail/@p.Id">
-                    <img class="remove-from-cart" data-id="@p.Id" src="/Content/img/products/@p.Image"  width="50" height="50"/>
-                </a>
-
-            </td>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Đơn giá</th>
+            <th>Giảm giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th></th>
         </tr>
-    }
-    <tr>
-        <th colspan="5" style="text-align:right">Tổng cộng:</th>
-        <th>$@ShoppingCart.Cart.Total</th>
-        <th></th>
-    </tr>
-</table>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Name</td>
+                <td>@Html.FormatValue(p.UnitPrice, "{0:c}")</td>
+                <td>@Html.FormatValue(p.Discount, "{0:p}")</td>
+                <td><input class="quantity" value="@p.Quantity" data-id="@p.Id" size="3"></td>
+                <td id="@p.Id">@Html.FormatValue(p.UnitPrice * p.Quantity * (1 - p.Discount), "{0:c}")</td>
+                <td>
+                    <a href="/Product/Detail/@p.Id">
+                        <img class="remove-from-cart" data-id="@p.Id" src="/Content/img/products/@p.Image" width="50" height="50" />
+                    </a>
+
+                </td>
+            </tr>
+        }
+        <tr>
+            <th colspan="5" style="text-align:right">Tổng cộng:</th>
+            <th>$@ShoppingCart.Cart.Total</th>
+            <th></th>
+        </tr>
+    </table>
+}
+
 <form action="@Url.Action("Clear", "Cart")" method="post">
     <button class="btn btn-default"  style="color: white;">
         <span class="glyphicon glyphicon-th-list"></span>

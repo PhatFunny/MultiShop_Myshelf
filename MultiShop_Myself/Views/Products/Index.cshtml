@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MultiShop_Myself.Models.Product>
+@using MultiShop_Myself.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>DANH MỤC SẢN PHẨM</h2>
+
+<p>
+    @Html.ActionLink("Thêm sản phẩm", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Đơn vị tính
+        </th>
+        <th>
+            Đơn giá
+        </th>
+        <th>
+            Loại sản phẩm
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitBrief)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.NameVN)
+        </td>
+        <td>
+            @Html.Image("/Content/img/products/" + item.Image, "", "50", "50")
+        </td>
+
+        
+        <td>
+            <i class="far fa-edit"></i>@Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+            <i class="far fa-trash-alt"></i>@Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
