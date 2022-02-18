@@ -70,8 +70,9 @@ public class ShoppingCart
     {
         get
         {
-            return Items.Sum(p => 
-                p.UnitPrice * p.Quantity * (1 - p.Discount));
+            return Items.Sum(p => Math.Round(p.UnitPrice * p.Quantity * (1 - p.Discount), 1));
         }
     }
+
+    
 }

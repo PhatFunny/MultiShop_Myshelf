@@ -15,7 +15,7 @@ namespace MultiShop_Myself.AdminControllers
         private MultiShop2Entities db = new MultiShop2Entities();
 
         // GET: OrderDetails
-        public ActionResult Index()
+        public ActionResult Index(string Id)
         {
             var orderDetails = db.OrderDetails.Include(o => o.Order).Include(o => o.Product);
             return View(orderDetails.ToList());

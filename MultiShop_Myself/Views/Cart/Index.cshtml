@@ -21,7 +21,9 @@
             <th>Đơn giá</th>
             <th>Giảm giá</th>
             <th>Số lượng</th>
+            <td></td>
             <th>Thành tiền</th>
+            <th></th>
             <th></th>
         </tr>
         @foreach (var p in Model)
@@ -31,13 +33,16 @@
                 <td>@p.Name</td>
                 <td>@Html.FormatValue(p.UnitPrice, "{0:c}")</td>
                 <td>@Html.FormatValue(p.Discount, "{0:p}")</td>
-                <td><input class="quantity" value="@p.Quantity" data-id="@p.Id" size="3"></td>
-                <td id="@p.Id">@Html.FormatValue(p.UnitPrice * p.Quantity * (1 - p.Discount), "{0:c}")</td>
+                <td><input type="number" class="quantity" value="@p.Quantity" data-id="@p.Id" size="3"></td>
+                <td><input type="button" class="btn btn-success" value="Cập nhật" onclick="window.location.reload();" /></td>
+                <td id="@p.Id">@Html.FormatValue(Math.Round(p.UnitPrice * p.Quantity * (1 - p.Discount), 1), "{0:c}")</td>
                 <td>
                     <a href="/Product/Detail/@p.Id">
-                        <img class="remove-from-cart" data-id="@p.Id" src="/Content/img/products/@p.Image" width="50" height="50" />
+                        <img data-id="@p.Id" src="/Content/img/products/@p.Image" width="50" height="50" />
                     </a>
-
+                </td>
+                <td>
+                    <a href="@Url.Action("DelCartItem", new { Id = @p.Id})" onclick="return confirm('Xóa sản phẩm này?')" class="btn btn-danger btn-sm">Xóa</a>
                 </td>
             </tr>
         }
@@ -45,42 +50,34 @@
             <th colspan="5" style="text-align:right">Tổng cộng:</th>
             <th>$@ShoppingCart.Cart.Total</th>
             <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td colspan="12">
+                <form action="@Url.Action("mail", "Cart")" method="get">
+                    Thông tin đặt hàng - Email: <input type="email" name="Email" />
+                    - Điện thoại: <input type="text" name="Phone" />
+                    
+                    <a href="@Url.Action("Clear", "Cart")" class="btn btn-default" style="color: white;">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                        Xóa
+                    </a>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-default" style="color: white;">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                        Tiếp tục mua sắm
+                    </a>
+                    <input type="submit" value="Đặt hàng" class="btn btn-default" style="color: white;" />
+                </form>
+            </td>
         </tr>
     </table>
 }
 
-<form action="@Url.Action("Clear", "Cart")" method="post">
-    <button class="btn btn-default"  style="color: white;">
-        <span class="glyphicon glyphicon-th-list"></span>
-        Xóa 
-    </button>
-    <a href="@Url.Action("Index", "Home")" class="btn btn-default"  style="color: white;">
-        <span class="glyphicon glyphicon-th-list"></span>
-        Tiếp tục mua sắm
-    </a>
-    <a href="@Url.Action("Checkout", "Order")" class="btn btn-default"  style="color: white;">
-        <span class="glyphicon glyphicon-th-list"></span>
-        Thanh toán
-    </a>
-</form>
 
 @section scripts{
     <script>
         $(function () {
-            // Xóa khỏi giỏ
-            //$(".remove-from-cart").click(function () {
-            //    pid = $(this).attr("data-id");
-            //    tr = $(this).parents("tr");// tim <tr> chua <img> bi click
-            //    $.ajax({
-            //        url: "/Cart/Remove",
-            //        data: { id: pid },
-            //        success: function (response) {
-            //            $("#nn-cart-count").html(response.Count);
-            //            $("#nn-cart-total").html(response.Total);
-            //            tr.hide(500);
-            //        }
-            //    });
-            //});
             // Cập nhật số lượng
             $(".quantity").keyup(function () {
                 pid = $(this).attr("data-id");

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MultiShop_Myself.Models;
+using PagedList;
 using System.IO;
 
 namespace MultiShop_Myself.AdminControllers
@@ -16,10 +17,31 @@ namespace MultiShop_Myself.AdminControllers
         private MultiShop2Entities db = new MultiShop2Entities();
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, int?page)
         {
+            ViewBag.SortByName = String.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
+            ViewBag.SortByPrice = (sortOrder == "dongia" ? "dongia_desc" : "dongia");
+            ViewBag.CurrentSort = sortOrder;
             var products = db.Products.Include(p => p.Category).Include(p => p.Supplier);
-            return View(products.ToList());
+            switch(sortOrder)
+            {
+                case "ten_desc":
+                    products = products.OrderByDescending(s => s.Name);
+                    break;
+                case "dongia_desc":
+                    products = products.OrderByDescending(s => s.UnitPrice);
+                    break;
+                case "dongia":
+                    products = products.OrderBy(s => s.UnitPrice);
+                    break;
+                default:
+                    products = products.OrderBy(s => s.Name);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+
+            return View(products.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Products/Details/5

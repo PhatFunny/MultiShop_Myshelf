@@ -1,5 +1,7 @@
-﻿@model IEnumerable<MultiShop_Myself.Models.Product>
-@using MultiShop_Myself.Models
+﻿@model PagedList.IPagedList<MultiShop_Myself.Models.Product>
+@using MultiShop_Myself.Models;
+@using PagedList.Mvc;
+<link rel="stylesheet" href="~/Content/PagedList.css" />
 
 @{
     ViewBag.Title = "Index";
@@ -13,13 +15,13 @@
 <table class="table">
     <tr>
         <th>
-            Tên sản phẩm
+            @Html.ActionLink("Tên sản phẩm", "Index", new { sortOrder=ViewBag.SortByName })
         </th>
         <th>
             Đơn vị tính
         </th>
         <th>
-            Đơn giá
+            @Html.ActionLink("Đơn giá", "Index", new { sortOrder = ViewBag.SortByPrice })
         </th>
         <th>
             Loại sản phẩm
@@ -57,3 +59,13 @@
 }
 
 </table>
+
+<div>
+    Trang @(Model.PageCount < Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, page=>Url.Action("Index",
+    new
+    {
+        page,
+        sortOrder = ViewBag.CurrentSort
+    }))
+</div>
